@@ -8,6 +8,7 @@ const (
 	MethodNotRegisteredCode = iota
 	RouteNotRegisteredCode
 	HandlerNotFoundCode
+	ChannelNotClosed
 )
 
 type Err struct {
