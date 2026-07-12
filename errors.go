@@ -8,12 +8,17 @@ const (
 	MethodNotRegisteredCode = iota
 	RouteNotRegisteredCode
 	HandlerNotFoundCode
-	ChannelNotClosed
+	ChannelNotClosedCode
+	WsReadMessageCode
+	WsWriteMessageCode
+	WsWritePingMessageCode
+	WsInvalidMessageCode
+	WsNoPongCode
 )
 
 type Err struct {
-	Code    int
-	Message string
+	Code    int `json:"code"`
+	Message string `json:"message"`
 }
 
 func (err *Err) Format() string {
