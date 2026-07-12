@@ -21,6 +21,6 @@ type Err struct {
 	Message string `json:"message"`
 }
 
-func (err *Err) Format() string {
+func (err *Err) Error() string {
 	return fmt.Sprintf("[%d]: %s", err.Code, err.Message)
 }
