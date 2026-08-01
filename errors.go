@@ -5,7 +5,7 @@ import (
 )
 
 const (
-	MethodNotRegisteredCode = iota
+	MethodNotRegisteredCode uint16 = iota
 	RouteNotRegisteredCode
 	HandlerNotFoundCode
 	ChannelNotClosedCode
@@ -14,13 +14,18 @@ const (
 	WsWritePingMessageCode
 	WsInvalidMessageCode
 	WsNoPongCode
+	TcpAcceptCode
 )
 
 type Err struct {
-	Code    int `json:"code"`
+	Code    uint16 `json:"code"`
 	Message string `json:"message"`
 }
 
 func (err *Err) Error() string {
 	return fmt.Sprintf("[%d]: %s", err.Code, err.Message)
+}
+
+func CreateError(code uint16, message string) *Err {
+	return &Err{Code: code, Message: message}
 }
