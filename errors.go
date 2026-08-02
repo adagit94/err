@@ -15,6 +15,7 @@ const (
 	WsInvalidMessageCode
 	WsNoPongCode
 	TcpAcceptCode
+	TcpReadCode
 )
 
 type Err struct {
